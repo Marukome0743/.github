@@ -19,7 +19,7 @@ variable "billing_email" {
 variable "org_owners" {
   description = "GitHub logins that should hold the 'admin' role in the org"
   type        = list(string)
-  default     = ["JamBalaya56562"]
+  default     = ["JamBalaya56562", "Marukome0743"]
 }
 
 variable "security_manager_members" {
@@ -27,12 +27,22 @@ variable "security_manager_members" {
     GitHub logins added to the `security-managers` team. Members get
     read access to org-wide security alerts (Dependabot, code scanning,
     secret scanning) and write access to security configurations
-    without being granted org-admin. While solo, this is a single entry
-    that mirrors `org_owners`; expand the list as the maintainer team
-    grows.
+    without being granted org-admin.
   EOT
   type        = list(string)
-  default     = ["JamBalaya56562"]
+  default     = ["JamBalaya56562", "Marukome0743"]
+}
+
+variable "maintainer_members" {
+  description = "GitHub logins added to the `maintainers` team, each with the team-maintainer role."
+  type        = list(string)
+  default     = ["JamBalaya56562", "Marukome0743"]
+}
+
+variable "maintainer_repositories" {
+  description = "Repositories (names within the org) the `maintainers` team gets write access to, so their CODEOWNERS can request its review."
+  type        = list(string)
+  default     = ["vivarium"]
 }
 
 variable "allowed_action_patterns" {
